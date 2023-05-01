@@ -1,0 +1,93 @@
+// ==UserScript==
+// @name         Ultimate Krunker Utility
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  Uncaps FPS, Greater Zoom, Video Mode.
+// @author       Coasterm & timmytheman123
+// @match        *://krunker.io/*
+// @match        *://browserfps.com/*
+// @exclude      *://krunker.io/social*
+// @exclude      *://krunker.io/editor*
+// @icon         https://www.google.com/s2/favicons?domain=krunker.io
+// @grant        none
+// ==/UserScript==
+
+
+
+//For a Good experiance please change these variables to match your in game settings
+// Press V To toggle video mode. You have to die to completely toggle it (Warning may change game settings)
+// Press C to Zoom (Warning may change Game Settings unless you edit these variables)
+var FieldOfView = 110;
+var WeaponFOV = 110;
+var WeaponADSFOVPower = 0.3;
+
+(function() {
+    'use strict';
+    let MAX = 9999999999999999999999999;
+    requestAnimationFrame = (a) => setTimeout(a, 1e3/MAX)
+})();
+
+function SetSetting(name, value) {
+var actualCode = 'setSetting("' + name + '",' + value + ')'
+var script = document.createElement('script');
+script.textContent = actualCode;
+(document.head||document.documentElement).appendChild(script);
+script.remove();
+}
+
+var UIToggle = false;
+
+let d = document.addEventListener("keydown", (e) => {
+        if (e.keyCode == 67) {
+            SetSetting("fov", 60);
+            SetSetting("fpsFOV", 60);
+            SetSetting("adsFovMlt", 1)
+        }
+        if (e.keyCode == 86) {
+            if (UIToggle == false){
+            SetSetting("showUI", false)
+            SetSetting("showHitInd", false)
+            SetSetting("hideNames", 3)
+            SetSetting("showMedals", false)
+            SetSetting("shwChat", 2)
+            SetSetting("showMessages", false)
+            SetSetting("showUnboxings", false)
+            SetSetting("crosshairSho", 0)
+            SetSetting("crosshairShoM", 0)
+            SetSetting("hitm", false)
+            SetSetting("showHands", false)
+            SetSetting("showWeapon", false)
+            SetSetting("showWeaponSec", false)
+            SetSetting("showWeaponMel", false)
+            SetSetting("showPScore", false)
+            SetSetting("progMOpac", 0)
+            UIToggle = true
+            }else{
+            SetSetting("showUI", true)
+            SetSetting("showHitInd", true)
+            SetSetting("hideNames", 3)
+            SetSetting("showMedals", true)
+            SetSetting("shwChat", 2)
+            SetSetting("showMessages", true)
+            SetSetting("showUnboxings", true)
+            SetSetting("crosshairSho", 0)
+            SetSetting("crosshairShoM", 0)
+            SetSetting("hitm", true)
+            SetSetting("showHands", true)
+            SetSetting("showWeapon", true)
+            SetSetting("showWeaponSec", true)
+            SetSetting("showWeaponMel", true)
+            SetSetting("showPScore", true)
+            SetSetting("progMOpac", 0)
+            UIToggle = false
+            }
+        }
+})
+
+let f = document.addEventListener("keyup", (e) => {
+        if (e.keyCode == 67) {
+            SetSetting("fov", FieldOfView);
+            SetSetting("fpsFOV", WeaponFOV);
+            SetSetting("adsFovMlt", WeaponADSFOVPower)
+        }
+})
