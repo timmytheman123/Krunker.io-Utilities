@@ -8,4 +8,4 @@ This is not a cheat!!  If you are trying to get aimbot this is not it.
 # Installing
 1. Download Tampermonkey
 2. Copy-Paste the userscript into a new script on Tampermonkey
-3. Nothing
+3. Join a Krunker.io server
