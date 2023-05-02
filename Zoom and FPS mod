@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ultimate Krunker Utility
-// @namespace    http://tampermonkey.net/
-// @version      0.1
+// @namespace    http://github.com
+// @version      1
 // @description  Uncaps FPS, Greater Zoom, Video Mode.
 // @author       Coasterm & timmytheman123
 // @match        *://krunker.io/*
