@@ -7,5 +7,5 @@
 
 # Installing
 1. Download Tampermonkey
-2. Copy-Paste the userscript into a new script on Tampermonkey
+2. Copy-Paste the Tampermonkey Code into a new script on Tampermonkey
 3. Join a Krunker.io server
