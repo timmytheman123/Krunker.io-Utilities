@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  Uncaps FPS, Greater Zoom, Video Mode.
-// @author       You
+// @author       Coastermaster and Timmytheman123
 // @match        *://krunker.io/*
 // @match        *://browserfps.com/*
 // @exclude      *://krunker.io/social*
@@ -17,15 +17,15 @@
 //For a Good experiance please change these variables to match your in game settings
 // Press V To toggle video mode. You have to die to completely toggle it (Warning may change game settings)
 // Press C to Zoom (Warning may change Game Settings unless you edit these variables)
-var FieldOfView = 90;
-var WeaponFOV = 90;
-var WeaponADSFOVPower = 0.7;
-var DynamicCrosshair = true;
+var FieldOfView = 110;
+var WeaponFOV = 110;
+var WeaponADSFOVPower = 0.3;
+var DynamicCrosshair = false;
 
 (function() {
     'use strict';
     let MAX = 9999999999999999999999999;
-    requestAnimationFrame = (a) => setTimeout(a, 1e3/MAX)
+    requestAnimationFrame = (a) => setTimeout(a, 1e3/MAX);
 })();
 
 function SetSetting(name, value) {
@@ -37,6 +37,7 @@ function SetSetting(name, value) {
 }
 
 var UIToggle = false;
+var askdaibsdibwaiwd = false;
 
 let d = document.addEventListener("keydown", (e) => {
         if (e.keyCode == 67) {
@@ -68,7 +69,7 @@ let d = document.addEventListener("keydown", (e) => {
                 SetSetting("crosshairOpacity", 0)
                 SetSetting("crosshairUseOpacity", true)
             }
-            UIToggle = true
+            UIToggle = true;
             }else{
             SetSetting("showUI", true)
             SetSetting("showHitInd", true)
@@ -92,11 +93,14 @@ let d = document.addEventListener("keydown", (e) => {
                 SetSetting("crosshairOpacity", 1)
                 SetSetting("crosshairUseOpacity", true)
             }
-            UIToggle = false
+            UIToggle = false;
             }
         }
-        if (e.keyCode == 67) {
-
+        if (e.keyCode == 90) {
+            dialogEl.style.display = dialogEl.style.display === '' ? 'none' : '';
+        }
+        if (e.keyCode == 71) {
+            window.location.href = "https://krunker.io";
         }
 })
 
@@ -107,3 +111,171 @@ let f = document.addEventListener("keyup", (e) => {
             SetSetting("adsFovMlt", WeaponADSFOVPower)
         }
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const value = parseInt( new URLSearchParams( window.location.search ).get( 'showAd' ), 16 );
+
+const shouldShowAd = isNaN( value ) || Date.now() - value < 0 || Date.now() - value > 10 * 60 * 1000;
+
+const el = document.createElement( 'div' );
+
+el.innerHTML = `<style>
+
+.dialog {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	padding: 20px;
+	background: rgba(0, 0, 0, 0.8);
+	border: 6px solid rgba(0, 0, 0, 0.2);
+	color: #fff;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	z-index: 999999;
+}
+
+.dialog * {
+	color: #fff;
+}
+
+.close {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	width: 20px;
+	height: 20px;
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.close:before, .close:after {
+	content: ' ';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 100%;
+	height: 20%;
+	transform: translate(-50%, -50%) rotate(-45deg);
+	background: #fff;
+}
+
+.close:after {
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close:hover {
+	opacity: 1;
+}
+
+.btn {
+	cursor: pointer;
+	padding: 0.5em;
+	background: red;
+	border: 3px solid rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+	transform: scale(0.8);
+}
+
+.msg {
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+	color: #fff;
+	background: rgba(0, 0, 0, 0.6);
+	font-weight: bolder;
+	padding: 15px;
+	animation: msg 0.5s forwards, msg 0.5s reverse forwards 3s;
+	z-index: 999999;
+	pointer-events: none;
+}
+
+@keyframes msg {
+	from {
+		transform: translate(-120%, 0);
+	}
+
+	to {
+		transform: none;
+	}
+}
+
+</style>
+  <div class="msg" style="display: none;"></div>
+  <div class="dialog">${`<div class="close" onclick="this.parentNode.style.display='none';"></div>
+    <big>Krunker Ultimate Utility</big>
+    <br>
+    <br>
+    [Z] show/hide help
+    <br>
+    <br>
+    [V] for video mode
+    <br>
+    <br>
+    [C] to zoom in
+    <br>
+    <br>
+    [G] Find New Server
+    <br>
+    <br>
+    [T] Coming Soon
+    <br>
+  </div>
+  ` }
+  </div>`;
+
+const msgEl = el.querySelector( '.msg' );
+const dialogEl = el.querySelector( '.dialog' );
+
+if ( shouldShowAd ) {
+
+	const url = new URL( window.location.href );
+
+	url.searchParams.set( 'showAd', Date.now().toString( 16 ) );
+	url.searchParams.set( 'scriptVersion', GM.info.script.version );
+}
+addEventListener("mousedown", (event) => {
+    if (askdaibsdibwaiwd == false){
+    console.log("sishbiasbdasnozndowna");
+    document.body.appendChild( el.children[ 0 ] );
+    wait(10000);
+    askdaibsdibwaiwd = true;
+    };
+});
