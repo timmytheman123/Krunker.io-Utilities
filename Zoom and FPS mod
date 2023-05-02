@@ -8,6 +8,8 @@
 // @match        *://browserfps.com/*
 // @exclude      *://krunker.io/social*
 // @exclude      *://krunker.io/editor*
+// @updateURL    https://raw.githubusercontent.com/timmytheman123/Krunker.io-Utilities-Mod/main/Zoom%20and%20FPS%20mod
+// @downloadURL  https://raw.githubusercontent.com/timmytheman123/Krunker.io-Utilities-Mod/main/Zoom%20and%20FPS%20mod
 // @icon         https://www.google.com/s2/favicons?domain=krunker.io
 // @grant        none
 // ==/UserScript==
