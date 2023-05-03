@@ -96,10 +96,10 @@ let d = document.addEventListener("keydown", (e) => {
             UIToggle = false;
             }
         }
-        if (e.keyCode == 90) {
+        if (e.keyCode == 72) {
             dialogEl.style.display = dialogEl.style.display === '' ? 'none' : '';
         }
-        if (e.keyCode == 71) {
+        if (e.keyCode == 192) {
             window.location.href = "https://krunker.io";
         }
 })
@@ -243,7 +243,7 @@ el.innerHTML = `<style>
     <big>Krunker Ultimate Utility</big>
     <br>
     <br>
-    [Z] show/hide help
+    [H] show/hide help
     <br>
     <br>
     [V] for video mode
@@ -252,10 +252,10 @@ el.innerHTML = `<style>
     [C] to zoom in
     <br>
     <br>
-    [G] Find New Server
+    [~] Find New Server
     <br>
     <br>
-    [T] Coming Soon
+    [Z] Coming Soon
     <br>
   </div>
   ` }
