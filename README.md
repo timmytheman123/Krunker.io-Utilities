@@ -2,7 +2,7 @@
 
 # What does this do?
 * Uncaps FPS for browser players with requestAnimationFrame
-* Adds a Zoom keybind (C) to get more precise shots
+* Adds a Zoom keybind (C) to get more precise shots 
 * Video Mode (V) removes most UI overlay
 * Quickly find a new server (`)
 * (H) To pull up a help menu 
