@@ -12,5 +12,5 @@
 2. Copy-Paste the Tampermonkey Code into a new script on Tampermonkey
 3. Join a Krunker.io server
 
-#View Raw Link (if you want to set up a autoupdate)
+# View Raw Link (if you want to set up a autoupdate)
 https://raw.githubusercontent.com/timmytheman123/Krunker.io-Utilities-Mod/main/Tampermonkey%20Code
